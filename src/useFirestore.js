@@ -1,0 +1,22 @@
+import { useState, useEffect } from 'react';
+import { db } from './firebase/config'
+
+
+const useFirestore = (collection) => {
+    const [docs, setDocs] = useState([])
+
+    useEffect(() => {
+        let documents = [];
+        db.collection(collection).get().then((snapshot) => {
+            snapshot.docs.forEach(doc => {
+                documents.push(doc.data());
+            })
+            setDocs(documents);
+        })
+    }, [collection]);
+
+    return { docs };
+}   
+
+
+export default useFirestore;
