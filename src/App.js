@@ -1,3 +1,4 @@
+import Form from "./Form";
 import NavBar from "./NavBar";
 import Reviews from "./Reviews";
 
@@ -6,6 +7,7 @@ function App() {
     <div className="App">
       <NavBar />
       <Reviews />
+      <Form />
     </div>
   );
 }
